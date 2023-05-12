@@ -24,7 +24,7 @@ const Login = () => {
             <Input>
             <input type="password" placeholder="Informe sua senha"></input>
             </Input>
-            <Button><button type="submit">entrar <img src="img/vector.png"></img></button></Button>
+            <Button><button type="submit">entrar</button></Button>
             <span>Esqueceu sua senha?</span>
             </Form>
         </Container>

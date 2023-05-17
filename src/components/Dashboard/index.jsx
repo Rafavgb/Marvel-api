@@ -1,16 +1,21 @@
 import React from "react"
-import { Container, Divider } from "../Dashboard/styles";
-import Pontua from "../../assets/logo_pontua_white.png"
+import { Container, ContainerLogo, Divider } from "../Dashboard/styles";
+import Pontua from "../../assets/Group.png"
+import { AiOutlineUser } from "react-icons/ai";
+import { BsArrow90DegLeft } from "react-icons/bs";
+import { MdOutlineDashboard } from "react-icons/md";
 
-const Dashboard = () => { 
-    return(
+
+const Dashboard = () => {
+    return (
         <Container>
-           <img src={Pontua} alt=""></img>
-           <Divider/>
-           <h2>Home</h2>
-           <h2>Perfil</h2>
-           <Divider/>
-           <h2>Sair</h2>
+            <ContainerLogo><img src={Pontua} alt=""></img></ContainerLogo>
+            <Divider/>
+            <ul>
+                <li><a href="agents"><MdOutlineDashboard /> Home</a></li>
+                <li><a href="profile"><AiOutlineUser /> Perfil</a></li>
+                <li><a href="/"><BsArrow90DegLeft /> Sair</a></li>
+            </ul>
         </Container>
     )
 }

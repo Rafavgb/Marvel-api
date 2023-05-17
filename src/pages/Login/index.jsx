@@ -1,31 +1,67 @@
-import React, {Fragment} from "react"
-import { Button, Container, ContainerLogo, FormContainer, Input, Text, Form } from "./styles";
-import Bro from "../../assets/bro.png"
-import BemVindo from "../../assets/bem-vindo.png"
+import React, { useState } from "react"
+import { Container, ContainerLogo, FormContainer, Form, ErrorLogin, Input, Message } from "./styles";
+import Welcome from "../../assets/welcome.png"
 import Pontua from "../../assets/logo_pontua_white.png"
-import VectoSenha from "../../assets/vector_senha.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
+import { RiQuestionLine } from "react-icons/ri";
+import UserService from '../../services/UserService'
 
-const Loginn = () => {
-    return(
-     <Container>
-  <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
-            <img src={Bro} alt=""></img>
+//const userService = new UserService()
+
+const Login = () => {
+    const navigate = useNavigate("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+
+    const handleLogin = () => {
+        if (!email | !password) {
+            setError("Por favor, preencha todos os campos.")
+            return;
+        }
+        navigate("/select")
+    }
+
+    {/*const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+          setLoading(true)
+          const response = await userService.login(form)
+          console.log('response do Login', response)
+          if (response === true) {
+            alert('usuário Logado com Sucesso')
+            navigate('/agents')
+          }
+          setLoading(false)
+        }
+        catch (err) {
+          alert('Algo deu errado com o Login' + err)
+        }
+      } */}
+
+
+    return (
+        <Container>
+            <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
+            <img src={Welcome} alt=""></img>
             <Form>
-            <FormContainer>
-                <h2>Informe as suas credencias de acesso ao portal</h2>
+                <FormContainer>
+                    <p>Bem-vindo<b>.</b></p>
                 </FormContainer>
-            <Input>
-            <input type="email" placeholder="Informe seu e-mail"></input>
-            </Input>
-            <Input>
-            <input type="password" placeholder="Informe sua senha"></input>
-            </Input>
-            <Link to='/select'><Button><button type="submit">entrar </button></Button></Link>
-            <Link to ='/resetpassword'><span>Esqueceu sua senha?</span></Link>
+                <Message>Informe as suas credencias de acesso ao portal</Message>
+                <Input>
+                    <input type="email" placeholder="Informe seu e-mail" value={email} onChange={(e) => [setEmail(e.target.value), setError("")]}></input>
+                </Input>
+                <Input>
+                    <input type="password" placeholder="Informe sua senha." value={password} onChange={(e) => [setPassword(e.target.value), setError("")]}></input>
+                </Input>
+                <ErrorLogin>{error}</ErrorLogin>
+                <Button Text="entrar" onClick={handleLogin}></Button>
+                <Link to='/resetpassword'><span><RiQuestionLine /> Esqueceu sua senha? </span></Link>
             </Form>
-     </Container>
+        </Container>
     )
 }
 
-export default Loginn;
+export default Login;

@@ -1,25 +1,38 @@
-import React from "react"
-import { Button, Container, ContainerLogo, FormContainer, Input, Form } from "./styles";
-import Bro from "../../assets/bro.png"
-
+import React, { useState } from "react"
+import { Container, ContainerLogo, FormContainer, Input, Form, ErrorLogin, Button, Message } from "./styles";
+import Welcome from "../../assets/welcome.png"
+import { useNavigate } from "react-router-dom";
 import Pontua from "../../assets/logo_pontua_white.png"
-import { Link } from "react-router-dom";
+
 
 const ResetPassword = () => {
-    return(
-     <Container>
-  <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
-            <img src={Bro} alt=""></img>
+    const navigate = useNavigate("")
+    const [email, setEmail] = useState("")
+    const [error, setError] = useState("")
+    const handleLogin = () => {
+        if (!email) {
+            setError("Por favor, preencha o campo.")
+            return;
+        }
+        navigate("/confirmation")
+    }
+    return (
+        <Container>
+            <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
+            <img src={Welcome} alt=""></img>
             <Form>
-            <FormContainer>
-                <h2>Informe o e-mail do seu cadastro. Nós estaremos realizando o envio de um link com as instruções para você redefinir sua senha.</h2>
+                <FormContainer>
+                    <p>Recuperar senha<b>.</b></p>
+
                 </FormContainer>
-            <Input>
-            <input type="email" placeholder="Informe seu e-mail"></input>
-            </Input>
-            <Link to='/confirmation'><Button><button type="submit">enviar link </button></Button></Link>
+                <Message>Informe o e-mail do seu cadastro. Nós estaremos realizando o envio de um link com as instruções para você redefinir sua senha.</Message>
+                <Input>
+                    <input type="email" placeholder="Informe seu e-mail" value={email} onChange={(e) => [setEmail(e.target.value), setError("")]}></input>
+                </Input>
+                <ErrorLogin>{error}</ErrorLogin>
+                <Button><button type="submit" onClick={handleLogin}> enviar link </button></Button>
             </Form>
-     </Container>
+        </Container>
     )
 }
 

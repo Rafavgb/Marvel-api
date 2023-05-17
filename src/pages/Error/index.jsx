@@ -1,13 +1,13 @@
-import React, {Fragment} from "react"
+import React from "react"
 import { Container } from "./styles";
 
 
 const Error = () => {
-    return(
-     <Container>
-      <h2>404</h2>
-      <p>OOOPsss.... Page not found</p>
-     </Container>
+    return (
+        <Container>
+            <h2>404</h2>
+            <p>OOOPsss.... Page not found</p>
+        </Container>
     )
 }
 

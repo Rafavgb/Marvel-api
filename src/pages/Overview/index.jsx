@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Container, Card, CardList} from "./styles.js";
+import { Card, Container } from "./styles";
+import Dashboard from "../../components/Dashboard";
 import api from "../../services/api"
-import Dashboard from "../../components/Dashboard/index.jsx";
-import Pagination from "../../components/Pagination/index.jsx";
 
 
-const Agents = () => {
+const Overview = () => {
     const [characters, setCharacters] = useState([])
 
     useEffect(() => {
@@ -18,9 +17,8 @@ const Agents = () => {
     }, [])
     return (
         <>
-        <Dashboard />
-        <Container>
-            <CardList>
+            <Dashboard />
+            <Container>
                 {characters.map(character => {
                     return (
                         <>
@@ -35,12 +33,11 @@ const Agents = () => {
                         </>
                     )
                 })}
-            </CardList>
-       <Pagination/>
 
-        </Container>
+            </Container>
         </>
     )
 }
 
-export default Agents;
+
+export default Overview;

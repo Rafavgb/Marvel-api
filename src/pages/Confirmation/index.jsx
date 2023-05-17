@@ -1,21 +1,23 @@
 import React from "react"
-import { Button, Container, ContainerLogo, FormContainer, Form } from "./styles";
-import Bro from "../../assets/bro.png"
+import { Container, ContainerLogo, FormContainer, Form, Message } from "./styles";
+import Welcome from "../../assets/welcome.png"
 import Pontua from "../../assets/logo_pontua_white.png"
 import { Link } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Confirmation = () => {
-    return(
-     <Container>
-  <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
-            <img src={Bro} alt=""></img>
+    return (
+        <Container>
+            <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
+            <img src={Welcome} alt=""></img>
             <Form>
-            <FormContainer>
-                <h2>Foi enviado um e-mail para você com instruções de como redefinir a sua senha.</h2>
+                <FormContainer>
+                    <p>Tudo certo<b>;)</b></p>
                 </FormContainer>
-            <Link to='/'><Button><button type="submit">voltar para login </button></Button></Link>
+                <Message>Foi enviado um e-mail para você com instruções de como redefinir a sua senha.</Message>
+                <Link to='/'><Button Text="voltar para login"></Button></Link>
             </Form>
-     </Container>
+        </Container>
     )
 }
 

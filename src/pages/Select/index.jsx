@@ -1,26 +1,45 @@
-import React, {Fragment} from "react"
-import { Button, Container, ContainerLogo, FormContainer, Input, Text, Form } from "./styles";
-import Bro from "../../assets/bro.png"
-import BemVindo from "../../assets/bem-vindo.png"
+import React, { useEffect, useState } from "react"
+import { Button, Container, ContainerLogo, FormContainer, Form, Message, Selectbox } from "./styles";
+import Welcome from "../../assets/welcome.png"
 import Pontua from "../../assets/logo_pontua_white.png"
-import VectoSenha from "../../assets/vector_senha.png"
 import { Link } from "react-router-dom";
+import api from "../../services/api"
 
 const Select = () => {
-    return(
-     <Container>
-  <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
-            <img src={Bro} alt=""></img>
+    const [characters, setCharacters] = useState([])
+
+    useEffect(() => {
+        api
+            .get('/characters')
+            .then(response => {
+                setCharacters(response.data.data.results)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    return (
+        <Container>
+            <ContainerLogo> <img src={Pontua} alt=""></img></ContainerLogo>
+            <img src={Welcome} alt=""></img>
             <Form>
-            <FormContainer>
-                <h2>Tenha a visão completa do seu agente.</h2>
-                <select name="agents" id="agents">
-                 <option value="agent">Agent</option>
-              </select>
+                <FormContainer>
+                    <p>Selecione o seu agente mais legal<b>.</b></p>
                 </FormContainer>
-            <Link to='/agents'><Button><button type="submit">Entrar</button></Button></Link>
+                <Message>Tenha a visão completa do seu agente.</Message>
+                {characters.map(character => {
+                    return (
+                        <>
+                            <Selectbox>
+                                <select name="agents" id="agents">
+                                    <option value="agent">{character.name}</option>
+                                </select>
+                            </Selectbox>
+                        </>
+                    )
+                })}
+                <Link to='/agents'><Button><button type="submit">Entrar</button></Button></Link>
             </Form>
-     </Container>
+        </Container>
     )
 }
 

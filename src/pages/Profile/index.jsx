@@ -5,9 +5,8 @@ import Dashboard from "../../components/Dashboard";
 const Profile = () => {
     return (
         <>
-            <Dashboard />
             <Container>
-                <Title>Perfil<b> / </b></Title>
+                <Title>Perfil<b> / </b><span>A-Bomb</span></Title>
                 <Options> <ul>
                     <li><a href="overview">Visão geral</a></li>
                     <li><a href="teams">Teams</a></li>

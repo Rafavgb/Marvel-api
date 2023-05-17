@@ -2,7 +2,6 @@ import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Error from "../pages/Error";
-import Agents from "../pages/Agents";
 import ResetPassword from "../pages/ResetPassword";
 import Confirmation from "../pages/Confirmation";
 import Select from "../pages/Select/index";
@@ -12,12 +11,13 @@ import Teams from "../pages/Teams";
 import Powers from "../pages/Powers";
 import Species from "../pages/Species";
 import Authors from "../pages/Authors";
+import Home from "../pages/Home";
 
-const Private = ({ Item }) => {
+{/*const Private = ({ Item }) => {
     const login = true;
 
     return login > 0 ? <Item /> : <Login />;
-}
+} */}
 
 const RouterApp = () => {
     return (
@@ -25,7 +25,7 @@ const RouterApp = () => {
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="*" element={<Error />} />
-                <Route path="/agents" element={<Agents />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/resetpassword" element={<ResetPassword />} />
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="/select" element={<Select />} />

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { Container, Card, CardList} from "./styles.js";
-import api from "../../services/api"
+import api from "../../services/api.js"
 import Dashboard from "../../components/Dashboard/index.jsx";
 import Pagination from "../../components/Pagination/index.jsx";
+import Header from "../../components/Header/index.jsx";
 
 
-const Agents = () => {
+const Home = () => {
     const [characters, setCharacters] = useState([])
 
     useEffect(() => {
@@ -18,6 +19,7 @@ const Agents = () => {
     }, [])
     return (
         <>
+          {/* <Header/> */}
         <Dashboard />
         <Container>
             <CardList>
@@ -43,4 +45,4 @@ const Agents = () => {
     )
 }
 
-export default Agents;
+export default Home;

@@ -1,14 +1,19 @@
 import React from "react"
 import { Container } from "./styles";
 import Dashboard from "../../components/Dashboard";
+import Profile from "../Profile";
 
 
 const Authors = () => {
     return (
         <>
             <Dashboard />
+            <Profile />
             <Container>
-                <h2>Authors</h2>
+                <ul>
+                    <li>Stan Lee</li>
+                    <li>Steve Ditko</li>
+                </ul>
             </Container>
         </>
     )

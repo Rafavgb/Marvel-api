@@ -1,14 +1,17 @@
 import React from "react"
 import { Container } from "./styles";
 import Dashboard from "../../components/Dashboard";
-
+import Profile from "../Profile";
 
 const Species = () => {
     return (
         <>
             <Dashboard />
+            <Profile/>
             <Container>
-                <h2>Species</h2>
+            <ul>
+                    <li>Mutate</li>
+                </ul>
             </Container>
         </>
     )

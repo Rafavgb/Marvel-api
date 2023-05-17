@@ -82,7 +82,7 @@ letter-spacing: -0.065em;
 export const ErrorLogin = styled.div`
 color:#F21A05;
 margin: 36px;
-margin-top: 2px;
+margin-top: 5px;
 `
 
 export const Message = styled.div`

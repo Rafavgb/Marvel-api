@@ -1,13 +1,10 @@
 import React, { useState } from "react"
 import { Container, ContainerLogo, FormContainer, Form, ErrorLogin, Input, Message } from "./styles";
 import Welcome from "../../assets/welcome.png"
-import Pontua from "../../assets/logo_pontua_white.png"
+import Pontua from "../../assets/Group.white.png"
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import { RiQuestionLine } from "react-icons/ri";
-import UserService from '../../services/UserService'
-
-//const userService = new UserService()
 
 const Login = () => {
     const navigate = useNavigate("")
@@ -15,31 +12,13 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    const handleLogin = () => {
-        if (!email | !password) {
-            setError("Por favor, preencha todos os campos.")
-            return;
+    const handleVerifyUser = () => {
+        if (email === 'teste@pontua.com' && password === '1234@@') {
+            navigate("/select")
+        } else {
+            setError("Usuário ou senha inválida.")
         }
-        navigate("/select")
     }
-
-    {/*const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-          setLoading(true)
-          const response = await userService.login(form)
-          console.log('response do Login', response)
-          if (response === true) {
-            alert('usuário Logado com Sucesso')
-            navigate('/agents')
-          }
-          setLoading(false)
-        }
-        catch (err) {
-          alert('Algo deu errado com o Login' + err)
-        }
-      } */}
-
 
     return (
         <Container>
@@ -57,7 +36,7 @@ const Login = () => {
                     <input type="password" placeholder="Informe sua senha." value={password} onChange={(e) => [setPassword(e.target.value), setError("")]}></input>
                 </Input>
                 <ErrorLogin>{error}</ErrorLogin>
-                <Button Text="entrar" onClick={handleLogin}></Button>
+                <Button Text="entrar" onClick={handleVerifyUser}></Button>
                 <Link to='/resetpassword'><span><RiQuestionLine /> Esqueceu sua senha? </span></Link>
             </Form>
         </Container>

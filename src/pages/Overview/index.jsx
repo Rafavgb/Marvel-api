@@ -1,39 +1,20 @@
-import React, { useEffect, useState } from "react"
-import { Card, Container } from "./styles";
+import React from "react"
+import { Container } from "./styles";
 import Dashboard from "../../components/Dashboard";
-import api from "../../services/api"
+import Profile from "../Profile";
+import Abomb from "../../assets/abomb.png"
 
 
 const Overview = () => {
-    const [characters, setCharacters] = useState([])
 
-    useEffect(() => {
-        api
-            .get('/characters')
-            .then(response => {
-                setCharacters(response.data.data.results)
-            })
-            .catch(err => console.log(err))
-    }, [])
     return (
         <>
             <Dashboard />
+            <Profile/>
             <Container>
-                {characters.map(character => {
-                    return (
-                        <>
-                            <Card key={character.id} thumbnail={character.thumbnail}>
-                                <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                                    alt={`${character.name}`}></img>
-                                <h2>
-                                    {character.name}
-                                </h2>
-                                <p>{character.description}</p>
-                            </Card>
-                        </>
-                    )
-                })}
-
+            <img src={Abomb} alt=""></img>
+                <h2>A-Bomb (HAS)</h2>
+                <p>Born with super-human senses and the power to heal from almost any wound, Wolverine was captured by a secret Canadian organization and given an unbreakable skeleton and claws. Treated like an animal, it took years for him to control himself. Now, he's a premiere member of both the X-Men and the Avengers. </p>
             </Container>
         </>
     )

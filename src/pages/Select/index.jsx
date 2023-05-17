@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Button, Container, ContainerLogo, FormContainer, Form, Message, Selectbox } from "./styles";
 import Welcome from "../../assets/welcome.png"
-import Pontua from "../../assets/logo_pontua_white.png"
+import Pontua from "../../assets/Group.white.png"
 import { Link } from "react-router-dom";
 import api from "../../services/api"
 
@@ -37,7 +37,7 @@ const Select = () => {
                         </>
                     )
                 })}
-                <Link to='/agents'><Button><button type="submit">Entrar</button></Button></Link>
+                <Link to='/home'><Button><button type="submit">Entrar</button></Button></Link>
             </Form>
         </Container>
     )

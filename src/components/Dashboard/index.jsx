@@ -12,8 +12,8 @@ const Dashboard = () => {
             <ContainerLogo><img src={Pontua} alt=""></img></ContainerLogo>
             <Divider/>
             <ul>
-                <li><a href="agents"><MdOutlineDashboard /> Home</a></li>
-                <li><a href="profile"><AiOutlineUser /> Perfil</a></li>
+                <li><a href="home"><MdOutlineDashboard /> Home</a></li>
+                <li><a href="overview"><AiOutlineUser /> Perfil</a></li>
                 <li><a href="/"><BsArrow90DegLeft /> Sair</a></li>
             </ul>
         </Container>

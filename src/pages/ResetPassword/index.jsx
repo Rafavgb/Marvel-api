@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Container, ContainerLogo, FormContainer, Input, Form, ErrorLogin, Button, Message } from "./styles";
 import Welcome from "../../assets/welcome.png"
 import { useNavigate } from "react-router-dom";
-import Pontua from "../../assets/logo_pontua_white.png"
+import Pontua from "../../assets/Group.white.png"
 
 
 const ResetPassword = () => {

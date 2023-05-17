@@ -1,11 +1,13 @@
 import React from "react"
-import { Container } from "../SelectBox/styles";
+import { Container } from "./styles";
+import Search from "../../assets/search.png"
 
 
 const Header = () => {
     return (
         <Container>
-            Busque um agente
+            <img src={Search} alt=""></img>
+            <input type="text" placeholder='Busque um agente' />
         </Container>
     )
 }

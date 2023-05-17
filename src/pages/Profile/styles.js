@@ -8,7 +8,7 @@ align-items: center;
 background-color: white;
 `
 export const Title = styled.div`
-
+margin: 9px;
 position: absolute;
 width: 169px;
 height: 25px;
@@ -24,8 +24,21 @@ color: #081B4E;
 b{
  color:#F43724;   
 }
+span{
+ color: #777777;
+}
 `
 export const Options = styled.div`
+position: absolute;
+width: 1366px;
+height: 767px;
+left: 0px;
+top: 0px;
+position: absolute;
+width: 1064px;
+height: 38px;
+left: 292px;
+top: 134px;
 ul {
   list-style-type: none;
   margin: 0;
